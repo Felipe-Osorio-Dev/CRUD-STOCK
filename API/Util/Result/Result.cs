@@ -25,6 +25,6 @@
         }
 
         public static Result<T> Success(T data) => new(true, string.Empty, data);
-        public static new Result<T> Failure(string messageError) => new(true, string.Empty, default!);
+        public static new Result<T> Failure(string messageError) => new(false, string.Empty, default!);
     }
 }
