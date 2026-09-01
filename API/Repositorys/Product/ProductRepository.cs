@@ -13,6 +13,12 @@ namespace API.Repositorys.Product
             _dbContext = dbContext;
         }
 
+        public async Task DeleteProductByIdAsync(ProductModel model)
+        {
+            _dbContext.Produtos.Remove(model);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<ProductModel>> GetAllProductsAsync()
         {
             return await _dbContext.Produtos.ToListAsync();
@@ -23,9 +29,14 @@ namespace API.Repositorys.Product
             return await _dbContext.Produtos.FindAsync(id);
         }
 
-        public async Task RegisterProductAsync(ProductModel product)
+        public async Task RegisterProductAsync(ProductModel model)
         {
-            _dbContext.Produtos.Add(product);
+            _dbContext.Produtos.Add(model);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateProductAsync()
+        {
             await _dbContext.SaveChangesAsync();
         }
     }

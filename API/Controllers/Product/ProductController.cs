@@ -54,5 +54,31 @@ namespace API.Controllers.Product
 
             return result.Data;
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUpdateProductAsync(long id, [FromBody] UpdateProductDTO productDto)
+        {
+            var result = await _productService.UpdateProductByIdAsync(id, productDto);
+
+            if(!result.IsSuccess)
+            {
+                return NotFound(result.MessageError);
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProductByIdAsync(long id)
+        {
+            var result = await _productService.DeleteProductByIdAsync(id);
+
+            if(!result.IsSuccess)
+            {
+                return NotFound(result.MessageError);
+            }
+
+            return NoContent();
+        }
     }
 }

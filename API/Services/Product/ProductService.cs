@@ -19,6 +19,19 @@ namespace API.Services.Product
             _mapper = mapper;
         }
 
+        public async Task<Result> DeleteProductByIdAsync(long id)
+        {
+            var model = await _repository.GetProductByIdAsync(id);
+
+            if (model == null)
+            {
+                return Result.Failure("Produto não encontrado ou não possui registro!!");
+            }
+
+            await _repository.DeleteProductByIdAsync(model);
+            return Result.Success();
+        }
+
         public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync()
         {
             var listProducts = await _repository.GetAllProductsAsync();
@@ -56,6 +69,22 @@ namespace API.Services.Product
             {
                 return Result<CreatedProductDTO>.Failure("Erro ao Registrar o Produto. O Produto ja Esta Cadastrado!!");
             }
+        }
+
+        public async Task<Result> UpdateProductByIdAsync(long id, UpdateProductDTO productDTO)
+        {
+            var model = await _repository.GetProductByIdAsync(id);
+
+            if (model == null)
+            {
+                return Result.Failure("Produto não Encontrado/Não Cadastrado!!");
+            }
+
+            _mapper.Map(productDTO, model);
+
+            await _repository.UpdateProductAsync();
+
+            return Result.Success();
         }
     }
 }

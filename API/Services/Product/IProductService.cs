@@ -9,5 +9,7 @@ namespace API.Services.Product
         Task<Result<CreatedProductDTO>> RegisterProductAsync(RegisterProductDTO productDTO);
         Task<IEnumerable<ProductDTO>> GetAllProductsAsync();
         Task<Result<ProductDTO>> GetProductByIdAsync(long id);
+        Task<Result> DeleteProductByIdAsync(long id);
+        Task<Result> UpdateProductByIdAsync(long id, UpdateProductDTO productDTO);
     }
 }
