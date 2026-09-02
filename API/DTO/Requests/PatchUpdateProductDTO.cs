@@ -1,6 +1,6 @@
 ﻿namespace API.DTO.Requests
 {
-    public class UpdateProductDTO
+    public class PatchUpdateProductDTO
     {
         public string? Name { get; set; }
         public string? Ean { get; set; }
