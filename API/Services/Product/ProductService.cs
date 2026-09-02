@@ -71,7 +71,7 @@ namespace API.Services.Product
             }
         }
 
-        public async Task<Result> UpdateProductByIdAsync(long id, UpdateProductDTO productDTO)
+        public async Task<Result> UpdateProductByIdAsync<T>(long id, T productDTO)
         {
             var model = await _repository.GetProductByIdAsync(id);
 

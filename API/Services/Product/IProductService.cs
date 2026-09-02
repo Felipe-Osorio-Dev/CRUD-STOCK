@@ -10,6 +10,6 @@ namespace API.Services.Product
         Task<IEnumerable<ProductDTO>> GetAllProductsAsync();
         Task<Result<ProductDTO>> GetProductByIdAsync(long id);
         Task<Result> DeleteProductByIdAsync(long id);
-        Task<Result> UpdateProductByIdAsync(long id, UpdateProductDTO productDTO);
+        Task<Result> UpdateProductByIdAsync<T>(long id, T productDTO);
     }
 }

@@ -56,11 +56,24 @@ namespace API.Controllers.Product
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUpdateProductAsync(long id, [FromBody] UpdateProductDTO productDto)
+        public async Task<IActionResult> PutUpdateProductAsync(long id, [FromBody] PutUpdateProductDTO productDto)
         {
             var result = await _productService.UpdateProductByIdAsync(id, productDto);
 
             if(!result.IsSuccess)
+            {
+                return NotFound(result.MessageError);
+            }
+
+            return Ok();
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchUpdateProductAsync(long id, [FromBody] PatchUpdateProductDTO productDto)
+        {
+            var result = await _productService.UpdateProductByIdAsync(id, productDto);
+
+            if (!result.IsSuccess)
             {
                 return NotFound(result.MessageError);
             }
