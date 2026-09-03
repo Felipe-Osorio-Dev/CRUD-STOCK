@@ -1,17 +1,52 @@
+using APP.Presenters.Main;
+using APP.Presenters.Register;
+using APP.Services.Navigation;
+using APP.Services.Navigation.Factory;
+using APP.Views.Main;
+using APP.Views.Register;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace APP
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            var service = new ServiceCollection();
+
+            ConfigureServices(service);
+
+            using (var serviceProvider = service.BuildServiceProvider())
+            {
+                ApplicationConfiguration.Initialize();
+
+                var mainForm = serviceProvider.GetRequiredService<MainForm>();
+                serviceProvider.GetRequiredService<MainPresenter>();
+                Application.Run(mainForm);
+            }
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            //Container
+            services.AddSingleton<MainForm>();
+
+            //Views
+            services.AddTransient<RegisterForm>();
+
+            //Presenters
+            services.AddSingleton<MainPresenter>();
+            services.AddTransient<RegisterPresenter>();
+
+            //Interfaces
+            services.AddTransient<IRegisterView>(sp => sp.GetRequiredService<RegisterForm>());
+            services.AddSingleton<IMainView>(sp => sp.GetRequiredService<MainForm>());
+
+            //Services
+            services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<IFormFactory, FormFactory>();
+
         }
     }
 }
