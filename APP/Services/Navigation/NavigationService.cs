@@ -12,34 +12,55 @@ namespace APP.Services.Navigation
             _formFactory = formFactory;
         }
 
-        public void NavigateTo<TForm, TPresenter>()
+        public void NavigateTo<TForm, TPresenter, TArgs>(TArgs? args)
             where TForm : Form
             where TPresenter : class
         {
-            
-            if(_mainForm == null)
+            if (_mainForm == null)
             {
                 throw new InvalidOperationException("Container Principal da Aplicação não está definido.");
             }
 
             var existingForm = _mainForm.MdiChildren.FirstOrDefault(f => f is TForm);
 
-            if(existingForm != null)
+            if (existingForm != null)
             {
                 existingForm.Activate();
                 return;
             }
 
-            var form = _formFactory.CreateForm<TForm, TPresenter>();
-            form.MdiParent = _mainForm;
-            form.Show();
+            if (args == null)
+            {
+                var form = _formFactory.CreateForm<TForm, TPresenter>();
+                form.MdiParent = _mainForm;
+                form.Show();
+
+                return;
+            }
+
+            var formArgs = _formFactory.CreateForm<TForm, TPresenter, TArgs>(args);
+            formArgs.MdiParent = _mainForm;
+            formArgs.Show();
         }
 
-        public void NavigateTo<TForm, TPresenter, TArgs>(TArgs args)
+        public void OpenDialog<TForm, TPresenter, TArgs>(TArgs? args)
             where TForm : Form
             where TPresenter : class
         {
-            throw new NotImplementedException();
+            if (args == null)
+            {
+                using (var dialog = _formFactory.CreateForm<TForm, TPresenter>())
+                {
+                    dialog.ShowDialog();
+                }
+
+                return;
+            }
+
+            using (var dialog = _formFactory.CreateForm<TForm, TPresenter, TArgs>(args))
+            {
+                dialog.ShowDialog();
+            }
         }
 
         public void SetMainForm(Form form)

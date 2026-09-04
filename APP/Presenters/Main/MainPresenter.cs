@@ -22,7 +22,7 @@ namespace APP.Presenters.Main
 
         private void NavigateTo(object sender, EventArgs e)
         {
-            _navigationService.NavigateTo<RegisterForm, RegisterPresenter>();
+            _navigationService.OpenDialog<RegisterForm, RegisterPresenter, EventArgs>(null);
         }
     }
 }
