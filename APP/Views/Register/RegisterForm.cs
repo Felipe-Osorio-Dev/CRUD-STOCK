@@ -6,5 +6,12 @@
         {
             InitializeComponent();
         }
+
+        public event EventHandler RegisterClicked;
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            RegisterClicked?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

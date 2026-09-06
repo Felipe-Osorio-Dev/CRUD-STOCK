@@ -2,6 +2,6 @@
 {
     internal interface IRegisterView
     {
-
+        event EventHandler RegisterClicked;
     }
 }

@@ -12,6 +12,13 @@ namespace APP.Presenters.Register
         {
             _registerView = registerView;
             _navigationService = navigationService;
+
+            _registerView.RegisterClicked += OnRegisterClicked;
+        }
+
+        private void OnRegisterClicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }
