@@ -1,5 +1,6 @@
 using APP.Presenters.Main;
 using APP.Presenters.Register;
+using APP.Services.Api.Product;
 using APP.Services.Navigation;
 using APP.Services.Navigation.Factory;
 using APP.Views.Main;
@@ -46,6 +47,11 @@ namespace APP
             //Services
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IFormFactory, FormFactory>();
+            services.AddHttpClient<IProductService, ProductService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:7084/api/products");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
 
         }
     }
