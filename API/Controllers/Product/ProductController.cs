@@ -2,6 +2,7 @@
 using API.DTO.Responses;
 using API.Services.Product;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 
 namespace API.Controllers.Product
@@ -32,7 +33,7 @@ namespace API.Controllers.Product
 
             if(!result.IsSuccess)
             {
-                return Conflict(result.MessageError);
+                return Conflict(new ApiErrorDTO(StatusCodes.Status409Conflict, result.MessageError));
             }
 
             return CreatedAtAction(
@@ -49,7 +50,7 @@ namespace API.Controllers.Product
 
             if(!result.IsSuccess)
             {
-                return NotFound(result.MessageError);
+                return NotFound(new ApiErrorDTO(StatusCodes.Status404NotFound, result.MessageError));
             }
 
             return result.Data;
@@ -62,7 +63,7 @@ namespace API.Controllers.Product
 
             if(!result.IsSuccess)
             {
-                return NotFound(result.MessageError);
+                return NotFound(new ApiErrorDTO(StatusCodes.Status404NotFound, result.MessageError));
             }
 
             return Ok();
@@ -75,7 +76,7 @@ namespace API.Controllers.Product
 
             if (!result.IsSuccess)
             {
-                return NotFound(result.MessageError);
+                return NotFound(new ApiErrorDTO(StatusCodes.Status404NotFound, result.MessageError));
             }
 
             return Ok();
@@ -88,7 +89,7 @@ namespace API.Controllers.Product
 
             if(!result.IsSuccess)
             {
-                return NotFound(result.MessageError);
+                return NotFound(new ApiErrorDTO(StatusCodes.Status404NotFound, result.MessageError));
             }
 
             return NoContent();
