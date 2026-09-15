@@ -1,4 +1,9 @@
-﻿namespace APP.Services.Api.Product
+﻿using APP.Dtos.Requests;
+using APP.Dtos.Responses;
+using APP.Util.Result;
+using System.Net.Http.Json;
+
+namespace APP.Services.Api.Product
 {
     internal class ProductService : IProductService
     {
@@ -7,6 +12,26 @@
         public ProductService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+        }
+
+        public async Task<Result<CreatedProductDTO>> RegisterProductAsync(RegisterProductDTO dto)
+        {
+            var response = await _httpClient.PostAsJsonAsync("", dto);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadFromJsonAsync<ApiErrorDTO>();
+                return Result<CreatedProductDTO>.Failure(errorMessage?.message ?? "Requisição falhou");
+            }
+
+            var data = await response.Content.ReadFromJsonAsync<CreatedProductDTO>();
+
+            if (data == null)
+            {
+                return Result<CreatedProductDTO>.Failure("Falha ao receber a resposta da API");
+            }
+
+            return Result<CreatedProductDTO>.Success(data);
         }
     }
 }

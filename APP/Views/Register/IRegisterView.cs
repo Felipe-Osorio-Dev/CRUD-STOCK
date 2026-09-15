@@ -1,7 +1,10 @@
-﻿namespace APP.Views.Register
+﻿using APP.Dtos.Requests;
+using APP.Util.CustomArgs;
+
+namespace APP.Views.Register
 {
-    internal interface IRegisterView
+    public interface IRegisterView
     {
-        event EventHandler RegisterClicked;
+        event EventHandler<CustomEventArgs<RegisterProductDTO>> RegisterClicked;
     }
 }
