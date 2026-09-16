@@ -1,10 +1,12 @@
 using APP.Presenters.Main;
 using APP.Presenters.Register;
+using APP.Presenters.Stock;
 using APP.Services.Api.Product;
 using APP.Services.Navigation;
 using APP.Services.Navigation.Factory;
 using APP.Views.Main;
 using APP.Views.Register;
+using APP.Views.Stock;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace APP
@@ -35,14 +37,17 @@ namespace APP
 
             //Views
             services.AddTransient<RegisterForm>();
+            services.AddTransient<StockForm>();
 
             //Presenters
             services.AddSingleton<MainPresenter>();
             services.AddTransient<RegisterPresenter>();
+            services.AddTransient<StockPresenter>();
 
             //Interfaces
             services.AddTransient<IRegisterView>(sp => sp.GetRequiredService<RegisterForm>());
             services.AddSingleton<IMainView>(sp => sp.GetRequiredService<MainForm>());
+            services.AddSingleton<IStockView>(sp => sp.GetRequiredService<StockForm>());
 
             //Services
             services.AddSingleton<INavigationService, NavigationService>();

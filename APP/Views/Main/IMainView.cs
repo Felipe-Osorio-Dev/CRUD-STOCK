@@ -3,5 +3,6 @@
     internal interface IMainView
     {
         event EventHandler RegisterMenuItemClicked;
+        event EventHandler StockMenuItemClicked;
     }
 }

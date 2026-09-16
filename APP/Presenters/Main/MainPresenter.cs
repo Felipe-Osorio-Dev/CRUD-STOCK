@@ -1,7 +1,9 @@
 ﻿using APP.Presenters.Register;
+using APP.Presenters.Stock;
 using APP.Services.Navigation;
 using APP.Views.Main;
 using APP.Views.Register;
+using APP.Views.Stock;
 
 namespace APP.Presenters.Main
 {
@@ -17,12 +19,18 @@ namespace APP.Presenters.Main
 
             _navigationService.SetMainForm((Form) _view);
 
-            _view.RegisterMenuItemClicked += NavigateTo;
+            _view.RegisterMenuItemClicked += OnRegisterMenuItemClicked;
+            _view.StockMenuItemClicked += OnStockMenuItemClicked;
         }
 
-        private void NavigateTo(object sender, EventArgs e)
+        private void OnRegisterMenuItemClicked(object sender, EventArgs e)
         {
             _navigationService.OpenDialog<RegisterForm, RegisterPresenter, EventArgs>(null);
+        }
+
+        private void OnStockMenuItemClicked(object sender, EventArgs e)
+        {
+            _navigationService.NavigateTo<StockForm, StockPresenter, EventArgs>(null);
         }
     }
 }
