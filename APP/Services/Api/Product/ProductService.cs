@@ -14,6 +14,26 @@ namespace APP.Services.Api.Product
             _httpClient = httpClient;
         }
 
+        public async Task<Result<List<ProductDTO>>> GetAllProductsAsync()
+        {
+            var response = await _httpClient.GetAsync("");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadFromJsonAsync<ApiErrorDTO>();
+                return Result<List<ProductDTO>>.Failure(errorMessage?.message ?? "Requisição falhou");
+            }
+
+            var data = await response.Content.ReadFromJsonAsync<List<ProductDTO>>();
+
+            if (data == null)
+            {
+                return Result<List<ProductDTO>>.Failure("Falha ao receber a resposta da API");
+            }
+
+            return Result<List<ProductDTO>>.Success(data);
+        }
+
         public async Task<Result<CreatedProductDTO>> RegisterProductAsync(RegisterProductDTO dto)
         {
             var response = await _httpClient.PostAsJsonAsync("", dto);

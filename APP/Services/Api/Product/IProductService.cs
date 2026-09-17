@@ -7,5 +7,6 @@ namespace APP.Services.Api.Product
     internal interface IProductService
     {
         Task<Result<CreatedProductDTO>> RegisterProductAsync(RegisterProductDTO dto);
+        Task<Result<List<ProductDTO>>> GetAllProductsAsync();
     }
 }
