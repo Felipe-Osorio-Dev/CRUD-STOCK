@@ -41,9 +41,11 @@
             dtgvStock.AllowUserToDeleteRows = false;
             dtgvStock.AllowUserToResizeColumns = false;
             dtgvStock.AllowUserToResizeRows = false;
+            dtgvStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvStock.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -71,6 +73,7 @@
             dtgvStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dtgvStock.RowHeadersVisible = false;
             dtgvStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvStock.ShowEditingIcon = false;
             dtgvStock.Size = new Size(776, 346);
             dtgvStock.TabIndex = 0;
             // 
