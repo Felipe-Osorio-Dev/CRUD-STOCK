@@ -1,6 +1,6 @@
 ﻿namespace APP.Dtos.Responses
 {
-    internal class ProductDTO
+    public class ProductDTO
     {
         public string Name { get; set; }
         public string Ean { get; set; }

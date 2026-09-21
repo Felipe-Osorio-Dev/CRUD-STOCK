@@ -25,14 +25,6 @@ namespace APP.Views.Stock
         {
             base.OnLoad(e);
             LoadProducts?.Invoke(this, EventArgs.Empty);
-
-            dtgvStock.DataBindingComplete += (s, e) =>
-            {
-                dtgvStock.Columns["Name"].HeaderText = "Nome";
-                dtgvStock.Columns["Ean"].HeaderText = "Cod.Fabrica";
-                dtgvStock.Columns["Amount"].HeaderText = "Quantidade";
-                dtgvStock.Columns["Validate"].HeaderText = "Validade";
-            };
         }
     }
 }
