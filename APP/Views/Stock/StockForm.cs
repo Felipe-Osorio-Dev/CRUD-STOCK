@@ -6,6 +6,7 @@ namespace APP.Views.Stock
     public partial class StockForm : Form, IStockView
     {
         private readonly BindingSource _bindingSource = new();
+        private BindingList<ProductDTO> _products;
 
         public StockForm()
         {
@@ -13,18 +14,28 @@ namespace APP.Views.Stock
             dtgvStock.DataSource = _bindingSource;
         }
 
-        BindingList<ProductDTO> IStockView.Products
+        public BindingList<ProductDTO> Products
         {
-            get => new();
-            set => _bindingSource.DataSource = value;
+            get => _products;
+            set
+            {
+                _products = value;
+                _bindingSource.DataSource = _products;
+            }
         }
 
         public event EventHandler LoadProducts;
+        public event EventHandler RegisterProduct;
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             LoadProducts?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnRegisterProduct_Click(object sender, EventArgs e)
+        {
+            RegisterProduct?.Invoke(this, EventArgs.Empty);
         }
     }
 }

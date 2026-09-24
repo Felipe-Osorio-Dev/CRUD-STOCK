@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dtgvStock = new DataGridView();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             eanDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -58,38 +58,38 @@
             dtgvStock.AutoGenerateColumns = false;
             dtgvStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvStock.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = SystemColors.Control;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            dtgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgvStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dtgvStock.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, eanDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, validateDataGridViewTextBoxColumn });
             dtgvStock.DataSource = productDTOBindingSource;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = SystemColors.Window;
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle13.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.False;
-            dtgvStock.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dtgvStock.DefaultCellStyle = dataGridViewCellStyle6;
             dtgvStock.EnableHeadersVisualStyles = false;
             dtgvStock.Location = new Point(12, 48);
             dtgvStock.MultiSelect = false;
             dtgvStock.Name = "dtgvStock";
             dtgvStock.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = SystemColors.Control;
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-            dtgvStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dtgvStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dtgvStock.RowHeadersVisible = false;
             dtgvStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvStock.ShowEditingIcon = false;
@@ -100,9 +100,9 @@
             // 
             nameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             nameDataGridViewTextBoxColumn.HeaderText = "Nome";
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             nameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -112,9 +112,9 @@
             // 
             eanDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             eanDataGridViewTextBoxColumn.DataPropertyName = "Ean";
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            eanDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            eanDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             eanDataGridViewTextBoxColumn.HeaderText = "Cod.Produto";
             eanDataGridViewTextBoxColumn.Name = "eanDataGridViewTextBoxColumn";
             eanDataGridViewTextBoxColumn.ReadOnly = true;
@@ -124,9 +124,9 @@
             // 
             amountDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             amountDataGridViewTextBoxColumn.HeaderText = "Quantidade";
             amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             amountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -136,9 +136,9 @@
             // 
             validateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             validateDataGridViewTextBoxColumn.DataPropertyName = "Validate";
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            validateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             validateDataGridViewTextBoxColumn.HeaderText = "Validade";
             validateDataGridViewTextBoxColumn.Name = "validateDataGridViewTextBoxColumn";
             validateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -156,6 +156,7 @@
             btnRegisterProduct.TabIndex = 1;
             btnRegisterProduct.Text = "Cadastrar";
             btnRegisterProduct.UseVisualStyleBackColor = true;
+            btnRegisterProduct.Click += btnRegisterProduct_Click;
             // 
             // btnEditProduct
             // 

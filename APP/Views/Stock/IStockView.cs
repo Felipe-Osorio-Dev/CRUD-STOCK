@@ -7,5 +7,6 @@ namespace APP.Views.Stock
     {
         BindingList<ProductDTO> Products { get; set; }
         event EventHandler LoadProducts;
+        event EventHandler RegisterProduct;
     }
 }
