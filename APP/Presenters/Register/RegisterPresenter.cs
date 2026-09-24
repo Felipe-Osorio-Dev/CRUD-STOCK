@@ -1,22 +1,24 @@
 ﻿using APP.Dtos.Requests;
+using APP.Dtos.Responses;
 using APP.Services.Api.Product;
 using APP.Services.Navigation;
 using APP.Util.CustomArgs;
 using APP.Views.Register;
+using MapsterMapper;
 
 namespace APP.Presenters.Register
 {
     internal class RegisterPresenter
     {
         private readonly IRegisterView _registerView;
-        private readonly INavigationService _navigationService;
         private readonly IProductService _productService;
+        private readonly IMapper _mapper;
 
-        public RegisterPresenter(IRegisterView registerView, INavigationService navigationService, IProductService productService)
+        public RegisterPresenter(IRegisterView registerView, IProductService productService, IMapper mapper)
         {
             _registerView = registerView;
-            _navigationService = navigationService;
             _productService = productService;
+            _mapper = mapper;
 
             _registerView.RegisterClicked += OnRegisterClicked;
         }
@@ -31,8 +33,13 @@ namespace APP.Presenters.Register
                 return;
             }
 
+            _registerView.CreatedProduct = _mapper.Map<ProductDTO>(response.Data);
+
             MessageBox.Show("O Produto " + response.Data.Name + " foi cadastrado com sucesso!",
                 "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            _registerView.DialogResult = DialogResult.OK;
+
             return;
         }
     }
