@@ -7,6 +7,7 @@ using APP.Services.Navigation.Factory;
 using APP.Views.Main;
 using APP.Views.Register;
 using APP.Views.Stock;
+using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace APP
@@ -50,6 +51,7 @@ namespace APP
             services.AddSingleton<IStockView>(sp => sp.GetRequiredService<StockForm>());
 
             //Services
+            services.AddMapster();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IFormFactory, FormFactory>();
             services.AddHttpClient<IProductService, ProductService>(client =>
