@@ -1,10 +1,12 @@
 ﻿using APP.Dtos.Requests;
+using APP.Dtos.Responses;
 using APP.Util.CustomArgs;
 
 namespace APP.Views.Register
 {
     public partial class RegisterForm : Form, IRegisterView
     {
+
         public RegisterForm()
         {
             InitializeComponent();
@@ -19,6 +21,10 @@ namespace APP.Views.Register
             txtBoxEan.KeyPress += OnValidateEan;
         }
 
+        public ProductDTO CreatedProduct { get; set; } = new();
+
+        public DialogResult DialogResult { get; set; }
+
         public event EventHandler<CustomEventArgs<RegisterProductDTO>> RegisterClicked;
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -32,6 +38,8 @@ namespace APP.Views.Register
             };
 
             RegisterClicked?.Invoke(this, new CustomEventArgs<RegisterProductDTO>(product));
+
+            btnRegister.DialogResult = DialogResult;
         }
 
         private void IsEnabled(object sender, EventArgs e)
