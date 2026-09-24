@@ -43,7 +43,7 @@ namespace APP.Services.Navigation
             formArgs.Show();
         }
 
-        public void OpenDialog<TForm, TPresenter, TArgs>(TArgs? args)
+        public Form OpenDialog<TForm, TPresenter, TArgs>(TArgs? args)
             where TForm : Form
             where TPresenter : class
         {
@@ -52,14 +52,15 @@ namespace APP.Services.Navigation
                 using (var dialog = _formFactory.CreateForm<TForm, TPresenter>())
                 {
                     dialog.ShowDialog();
+                    return dialog;
                 }
 
-                return;
             }
 
             using (var dialog = _formFactory.CreateForm<TForm, TPresenter, TArgs>(args))
             {
                 dialog.ShowDialog();
+                return dialog;
             }
         }
 
