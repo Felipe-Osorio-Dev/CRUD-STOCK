@@ -62,8 +62,8 @@
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dtgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgvStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -94,7 +94,7 @@
             dtgvStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvStock.ShowEditingIcon = false;
             dtgvStock.Size = new Size(776, 346);
-            dtgvStock.TabIndex = 0;
+            dtgvStock.TabIndex = 1;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -166,6 +166,7 @@
             btnEditProduct.TabIndex = 2;
             btnEditProduct.Text = "Editar";
             btnEditProduct.UseVisualStyleBackColor = true;
+            btnEditProduct.Click += btnEditProduct_Click;
             // 
             // btnDeleteProduct
             // 

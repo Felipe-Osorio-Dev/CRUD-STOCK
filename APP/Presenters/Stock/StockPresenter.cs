@@ -3,6 +3,7 @@ using APP.Dtos.Responses;
 using APP.Presenters.Register;
 using APP.Services.Api.Product;
 using APP.Services.Navigation;
+using APP.Util.CustomArgs;
 using APP.Views.Register;
 using APP.Views.Stock;
 
@@ -22,6 +23,7 @@ namespace APP.Presenters.Stock
 
             _view.LoadProducts += OnLoadProducts;
             _view.RegisterProduct += OnRegisterProduct;
+            _view.EditProduct += OnEditProduct;
         }
 
         private async void OnLoadProducts(object sender, EventArgs e)
@@ -40,11 +42,20 @@ namespace APP.Presenters.Stock
 
         private void OnRegisterProduct(object sender, EventArgs e)
         {
-            var dialog = (RegisterForm) _navigationService.OpenDialog<RegisterForm, RegisterPresenter, EventArgs>(null);
+            var dialog = (RegisterForm)_navigationService.OpenDialog<RegisterForm, RegisterPresenter, EventArgs>(null);
 
-            if(dialog.DialogResult == DialogResult.OK)
+            if (dialog.DialogResult == DialogResult.OK)
             {
                 _view.Products.Add(dialog.CreatedProduct);
+            }
+        }
+
+        private void OnEditProduct(object sender, CustomEventArgs<ProductDTO> args)
+        {
+            var dialog = (RegisterForm)_navigationService.OpenDialog<RegisterForm, RegisterPresenter, ProductDTO>(args.Value);
+            if (dialog.DialogResult == DialogResult.OK)
+            {
+
             }
         }
     }
