@@ -20,6 +20,20 @@ namespace APP.Views.Register
             txtBoxEan.TextChanged += IsEnabled;
             txtBoxEan.KeyPress += OnValidateEan;
         }
+        public RegisterForm(ProductDTO product)
+        {
+            InitializeComponent();
+            OnEditProduct(product);
+
+            btnRegister.Enabled = false;
+
+            dateTimeValidate.MinDate = DateTime.Now.AddMonths(3);
+
+            txtBoxName.TextChanged += IsEnabled;
+
+            txtBoxEan.TextChanged += IsEnabled;
+            txtBoxEan.KeyPress += OnValidateEan;
+        }
 
         public ProductDTO CreatedProduct { get; set; } = new();
 
@@ -33,7 +47,7 @@ namespace APP.Views.Register
             {
                 Name = txtBoxName.Text,
                 Ean = txtBoxEan.Text,
-                Amount = (int) numericAmount.Value,
+                Amount = (int)numericAmount.Value,
                 Validate = DateOnly.FromDateTime(dateTimeValidate.Value)
             };
 
@@ -53,6 +67,14 @@ namespace APP.Views.Register
             {
                 e.Handled = true;
             }
+        }
+
+        private void OnEditProduct(ProductDTO product)
+        {
+            txtBoxName.Text = product.Name;
+            txtBoxEan.Text = product.Ean;
+            numericAmount.Value = product.Amount;
+            dateTimeValidate.Value = product.Validate.ToDateTime(TimeOnly.MinValue);
         }
     }
 }
