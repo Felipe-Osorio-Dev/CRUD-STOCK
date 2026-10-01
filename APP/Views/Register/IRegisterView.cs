@@ -7,7 +7,9 @@ namespace APP.Views.Register
     public interface IRegisterView
     {
         ProductDTO CreatedProduct { get; set; }
+        EditProductDTO EditedProduct { get; set; }
         DialogResult DialogResult { get; set; }
         event EventHandler<CustomEventArgs<RegisterProductDTO>> RegisterClicked;
+        event EventHandler<CustomEventArgs<EditProductDTO>> SaveEditClicked;
     }
 }

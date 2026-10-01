@@ -34,6 +34,46 @@ namespace APP.Services.Api.Product
             return Result<List<ProductDTO>>.Success(data);
         }
 
+        public async Task<Result<ProductDTO>> PatchProductAsync(EditProductDTO dto)
+        {
+            var response = await _httpClient.PatchAsJsonAsync("", dto);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadFromJsonAsync<ApiErrorDTO>();
+                return Result<ProductDTO>.Failure(errorMessage?.message ?? "Requisição falhou");
+            }
+
+            var data = await response.Content.ReadFromJsonAsync<ProductDTO>();
+
+            if (data == null)
+            {
+                return Result<ProductDTO>.Failure("Falha ao receber a resposta da API");
+            }
+
+            return Result<ProductDTO>.Success(data);
+        }
+
+        public async Task<Result<ProductDTO>> PutProductAsync(EditProductDTO dto)
+        {
+            var response = await _httpClient.PutAsJsonAsync("", dto);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadFromJsonAsync<ApiErrorDTO>();
+                return Result<ProductDTO>.Failure(errorMessage?.message ?? "Requisição falhou");
+            }
+
+            var data = await response.Content.ReadFromJsonAsync<ProductDTO>();
+
+            if (data == null)
+            {
+                return Result<ProductDTO>.Failure("Falha ao receber a resposta da API");
+            }
+
+            return Result<ProductDTO>.Success(data);
+        }
+
         public async Task<Result<CreatedProductDTO>> RegisterProductAsync(RegisterProductDTO dto)
         {
             var response = await _httpClient.PostAsJsonAsync("", dto);

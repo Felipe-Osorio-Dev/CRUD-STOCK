@@ -42,5 +42,23 @@ namespace APP.Presenters.Register
 
             return;
         }
+
+        private async void OnSaveEditClicked(object sender, CustomEventArgs<EditProductDTO> product)
+        {
+            var response = await _productService.PutProductAsync(product.Value);
+
+            if (!response.IsSuccess)
+            {
+                MessageBox.Show(response.MessageError, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("O Produto " + response.Data.Name + " foi editado com sucesso!",
+                "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            _registerView.DialogResult = DialogResult.OK;
+
+            return;
+        }
     }
 }

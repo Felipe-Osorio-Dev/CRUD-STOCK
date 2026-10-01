@@ -39,6 +39,7 @@
             txtBoxName = new TextBox();
             btnRegister = new Button();
             btnCancel = new Button();
+            btnSaveEdit = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericAmount).BeginInit();
             SuspendLayout();
@@ -148,12 +149,24 @@
             btnCancel.Text = "Fechar";
             btnCancel.UseVisualStyleBackColor = true;
             // 
+            // btnSaveEdit
+            // 
+            btnSaveEdit.Location = new Point(258, 207);
+            btnSaveEdit.Name = "btnSaveEdit";
+            btnSaveEdit.Size = new Size(75, 23);
+            btnSaveEdit.TabIndex = 5;
+            btnSaveEdit.Text = "Registrar";
+            btnSaveEdit.UseVisualStyleBackColor = true;
+            btnSaveEdit.Visible = false;
+            btnSaveEdit.Click += btnSaveEdit_Click;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(451, 246);
+            Controls.Add(btnSaveEdit);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
             Controls.Add(groupBox1);
@@ -182,5 +195,6 @@
         private Label label1;
         private Button btnRegister;
         private Button btnCancel;
+        private Button btnSaveEdit;
     }
 }

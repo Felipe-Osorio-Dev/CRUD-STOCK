@@ -8,5 +8,7 @@ namespace APP.Services.Api.Product
     {
         Task<Result<CreatedProductDTO>> RegisterProductAsync(RegisterProductDTO dto);
         Task<Result<List<ProductDTO>>> GetAllProductsAsync();
+        Task<Result<ProductDTO>> PatchProductAsync(EditProductDTO dto);
+        Task<Result<ProductDTO>> PutProductAsync(EditProductDTO dto);
     }
 }
