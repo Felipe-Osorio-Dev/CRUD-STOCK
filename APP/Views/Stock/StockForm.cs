@@ -12,7 +12,16 @@ namespace APP.Views.Stock
         public StockForm()
         {
             InitializeComponent();
+
+            btnEditProduct.Enabled = false;
+
             dtgvStock.DataSource = _bindingSource;
+
+            dtgvStock.DataBindingComplete += (s, e) =>
+            {
+                dtgvStock.ClearSelection();
+                dtgvStock.CurrentCell = null;
+            };
 
             dtgvStock.SelectionChanged += ItemSelectionChanged;
         }
